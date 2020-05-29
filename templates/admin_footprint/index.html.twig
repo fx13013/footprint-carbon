@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carbon Footprint Calculator{% endblock %}
+
+{% block body %}
+    <div class="container mb-3">
+        <h1 class="mb-3">Carbon Footprint Calculator</h1>
+
+        <div class="text-right mb-3">
+            <a href="{{ path('footprint_new') }}" class="btn btn-success">Add an expense type</a>
+        </div>
+
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Expensive Type</th>
+                    <th>Ratio</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in ratio %}
+                    <tr>
+                        <td># {{item.id}}</td>
+                        <td>{{item.expenseType|upper}}</td>
+                        <td>{{item.ratio}}</td>
+                        <td><a href="{{ path('footprint_edit', {'id':item.id}) }}" class="btn btn-info">Edit</a></td>
+                        <td><a href="{{ path('footprint_delete', {'id':item.id}) }}" class="btn btn-primary">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

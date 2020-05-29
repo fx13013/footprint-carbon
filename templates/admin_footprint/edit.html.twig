@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Edit an expense{% endblock %}
+
+{% block body %}
+    <div class="container mb-3">
+        <h1>Edit an expense</h1>
+
+        {{form_start(footprintForm)}}
+
+        {{form_widget(footprintForm)}}
+
+        <button type="submit" class="btn btn-success">Modify</button>
+
+        {{form_end(footprintForm)}}
+
+        <a href="{{path('footprint_index')}}" class="d-block mt-3">Back</a>
+
+    </div>
+{% endblock %}
